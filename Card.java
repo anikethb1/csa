@@ -1,26 +1,26 @@
-import java.lang.Math;
-
 public class Card {
-    private String suit;
     private String rank;
-    private int value;
-    private int totalCards;
+    private String suit;
 
-    public Card() {
-        suit = "spade";
-        rank = "ace";
-        value = 1;
-        totalCards++;
+    public Card(String rank, String suit) {
+        this.rank = rank;
+        this.suit = suit;
     }
 
-    public Card(String s, String a, int v) {
-        suit = s;
-        rank = a;
-        value = v;
-        totalCards++;
+    @Override
+    public String toString() {
+        return rank + " of " + suit;
     }
 
-    public int compareTo(Card other) {
-        return value - other.value;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Card card = (Card) obj;
+        return rank.equals(card.rank) && suit.equals(card.suit);
     }
 }
